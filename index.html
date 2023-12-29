@@ -1,0 +1,78 @@
+<?php
+
+class Person {
+    public $name;
+    public $age;
+    public $id;
+
+    public function __construct($name, $age, $id) {
+        $this->name = $name;
+        $this->age = $age;
+        $this->id = $id;
+    }
+}
+
+class Student extends Person {
+    public $course;
+
+    public function __construct($name, $age, $id, $course) {
+        parent::__construct($name, $age, $id);
+        $this->course = $course;
+    }
+
+    public function displayInfo() {
+        echo "Student Name: {$this->name}<br>";
+        echo "Age: {$this->age}<br>";
+        echo "ID: {$this->id}<br>";
+        echo "Course: {$this->course}<br>";
+        echo "-------------------------<br>";
+    }
+}
+
+class Teacher extends Person {
+    public $course;
+
+    public function __construct($name, $age, $id, $course) {
+        parent::__construct($name, $age, $id);
+        $this->course = $course;
+    }
+
+    public function displayInfo() {
+        echo "Teacher Name: {$this->name}<br>";
+        echo "Age: {$this->age}<br>";
+        echo "ID: {$this->id}<br>";
+        echo "Course: {$this->course}<br>";
+        echo "-------------------------<br>";
+    }
+}
+
+// Create an array of students
+$students = [
+    new Student("John Doe", 20, "S12345", "Computer Science"),
+    new Student("Jane Smith", 22, "S67890", "Physics"),
+    new Student("Alice Johnson", 21, "S34567", "Mathematics"),
+    
+    // Add more students as needed
+];
+
+// Create an array of teachers
+$teachers = [
+    new Teacher("Mrs. Smith", 35, "T67890", "Mathematics"),
+    new Teacher("Mr. Johnson", 40, "T12345", "History"),
+    new Teacher("Dr. Williams", 30, "T45678", "Biology"),
+    // Add more teachers as needed
+];
+
+// Display student information
+echo "Student Information:<br>";
+foreach ($students as $student) {
+    $student->displayInfo();
+}
+
+// Display teacher information
+echo "Teacher Information:<br>";
+foreach ($teachers as $teacher) {
+    $teacher->displayInfo();
+}
+
+?>
